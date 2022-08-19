@@ -51,11 +51,11 @@ const ProjectSetting = (props: Props) => {
         </div>
         <div className="form-group">
         <select name="categoryId" className='form-control'>
-          {data.map((category)=>{
+<!--           {data.map((category)=>{
             return (
               <option >{category.projectCategoryName}</option>
             )
-          })}
+          })} -->
 
           <option >Web</option>
           <option >App</option>
