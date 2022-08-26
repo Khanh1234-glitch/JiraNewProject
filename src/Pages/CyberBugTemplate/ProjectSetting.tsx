@@ -31,6 +31,7 @@ const ProjectSetting = () => {
   return (
     <div className="container ">
       <h3>Create Project</h3>
+<<<<<<< HEAD
       <Form className="container" onFinish={handleSubmit}>
         <Form.Item label="projectName " name="projectName">
           <Input />
@@ -74,6 +75,42 @@ const ProjectSetting = () => {
             })}
           </Select>
         </Form.Item>
+=======
+      <form className="container">
+        <div className="form-group">
+          <p>Name</p>
+          <input type="text" className='form-control' name='projectName'/>
+        </div>
+        <div className="form-group">
+          <p>description</p>
+          <input type="text" className='form-control' name='description'/>
+          <Editor
+         initialValue="<p>This is the initial content of the editor.</p>"
+         init={{
+           height: 500,
+           menubar: false,
+           plugins: [
+             'advlist autolink lists link image charmap print preview anchor',
+             'searchreplace visualblocks code fullscreen',
+             'insertdatetime media table paste code help wordcount'
+           ],
+           toolbar: 'undo redo | formatselect | ' +
+           'bold italic backcolor | alignleft aligncenter ' +
+           'alignright alignjustify | bullist numlist outdent indent | ' +
+           'removeformat | help',
+           content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+         }}
+         onEditorChange={log}
+       />
+        </div>
+        <div className="form-group">
+        <select name="categoryId" className='form-control'>
+<!--           {data.map((category)=>{
+            return (
+              <option >{category.projectCategoryName}</option>
+            )
+          })} -->
+>>>>>>> 6ec90cbf193657f752b24a44551788a46c999c0c
 
         </div>
         <Button className="btn btn-outline-primary" htmlType="submit">
@@ -84,4 +121,8 @@ const ProjectSetting = () => {
   );
 };
 
+<<<<<<< HEAD
 export default ProjectSetting;
+=======
+export default ProjectSetting
+>>>>>>> 6ec90cbf193657f752b24a44551788a46c999c0c
