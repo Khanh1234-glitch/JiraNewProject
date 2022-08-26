@@ -1,17 +1,15 @@
-import React from "react";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store";
-import SignIn, { createLogIn } from "../../Slices/auth/SignIn";
+import  { createLogIn } from "../../Slices/auth/SignIn";
 import { Navigate } from "react-router-dom";
-import { FacebookOutlined, TwitterOutlined } from "@ant-design/icons";
+import { FacebookOutlined} from "@ant-design/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import { faTwitter, faFontAwesome } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 type Props = {};
 
-const Login = (props: Props) => {
-  const { data, isLoading, error } = useSelector(
+const Login = () => {
+  const { data } = useSelector(
     (state: RootState) => state.SignIn
   );
   const dispatch = useDispatch<AppDispatch>();

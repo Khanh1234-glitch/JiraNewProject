@@ -64,8 +64,16 @@ const CyberBugTemplate = (props: Props) => {
               <div>
                 <i className="fa fa-cog" />
                 <span>
+                  <NavLink className='ml-3 text-dark' to="/projectmanament">
+                    Project Manament
+                  </NavLink>
+                </span>
+              </div>
+              <div>
+                <i className="fa fa-cog" />
+                <span>
                   <NavLink className='ml-3 text-dark' to="projectsetting">
-                    Project Settings
+                    Create Project
                   </NavLink>
                 </span>
               </div>
@@ -297,7 +305,7 @@ const CyberBugTemplate = (props: Props) => {
                       <div className="status">
                         <h6>STATUS</h6>
                         <select className="custom-select">
-                          <option selected>SELECTED FOR DEVELOPMENT</option>
+                          <option value={""} >SELECTED FOR DEVELOPMENT</option>
                           <option value={1}>One</option>
                           <option value={2}>Two</option>
                           <option value={3}>Three</option>

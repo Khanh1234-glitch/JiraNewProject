@@ -12,8 +12,8 @@ interface ErrorResponse {
 }
 axiosClient.interceptors.response.use(
   (response) => {
-    // return response.data.content;
-    return response?.data.message;
+    return response.data.content;
+    // return response?.data.message;
   },
   (error: AxiosError<ErrorResponse>) => {
     return Promise.reject(error.response?.data.content);
@@ -21,16 +21,16 @@ axiosClient.interceptors.response.use(
 );
 
 // setup request interceptor
-// axiosClient.interceptors.request.use((config) => {
-//   // config là thông tin của request sẽ được gửi lên server
-//   const { accessToken } = store.getState().SignIn.data;
-//   if (config.headers) {
-//     if (accessToken) {
-//       config.headers.Authorization = `Bearer ${accessToken}`;
-//     }
-//   }
-//   return config;
-//   // Kiểm tra xem user đã đăng nhập hay chưa để lấy accesstoken gẵn vào headers
-// });
+axiosClient.interceptors.request.use((config) => {
+  // config là thông tin của request sẽ được gửi lên server
+  const { accessToken } = store.getState().SignIn.data;
+  if (config.headers) {
+    if (accessToken) {
+      config.headers.Authorization = `Bearer ${accessToken}`;
+    }
+  }
+  return config;
+  // Kiểm tra xem user đã đăng nhập hay chưa để lấy accesstoken gẵn vào headers
+});
 
 export default axiosClient;

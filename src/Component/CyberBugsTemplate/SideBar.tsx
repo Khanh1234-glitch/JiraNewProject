@@ -1,36 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+  MenuFoldOutlined,
+  UploadOutlined,
+  SearchOutlined,
+  PlusOutlined
+} from "@ant-design/icons";
+import { Layout, Menu } from "antd";
 
-type Props = {};
+const { Header, Sider, Content } = Layout;
 
-const SideBar = (props: Props) => {
+const SideBar = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
     <div>
-      <div className="sideBar">
-        <div className="sideBar-top">
-          <div className="sideBar-icon">
-            <i className="fab fa-jira" />
-          </div>
-          <div
-            className="sideBar-icon"
-            data-toggle="modal"
-            data-target="#searchModal"
-            style={{ cursor: "pointer" }}
-          >
-            <i className="fa fa-search" />
-            <span className="title">SEARCH ISSUES</span>
-          </div>
-          <div className="sideBar-icon">
-            <i className="fa fa-plus" />
-            <span className="title">CREATE ISSUES</span>
-          </div>
+      <Sider
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+        style={{ height: "100%" }}
+      > 
+        <div
+          className="text-right mr-2"
+          onClick={() => setCollapsed(!collapsed)}
+          style={{ cursor: "pointer", color: "#fff",fontSize:"20px" }}
+        >
+          <MenuFoldOutlined />
         </div>
-        <div className="sideBar-bottom">
-          <div className="sideBar-icon">
-            <i className="fa fa-question-circle" />
-            <span className="title">ABOUT</span>
-          </div>
-        </div>
-      </div>
+        <div className="logo" />
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+          items={[
+            {
+              key: "1",
+              icon: <PlusOutlined />,
+              label: "Create issue",
+            },
+            {
+              key: "2",
+              icon: <SearchOutlined />,
+              label: "Search",
+            },
+          ]}
+        />
+      </Sider>
     </div>
   );
 };
